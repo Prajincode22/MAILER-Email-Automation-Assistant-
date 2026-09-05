@@ -60,7 +60,8 @@ router.get('/google/callback', async (req, res) => {
     await user.save();
 
     // Redirect to Next.js frontend with user info
-    res.redirect(`http://localhost:3000/dashboard?userId=${user._id}`);
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+res.redirect(`${frontendUrl}/dashboard?userId=${user._id}`);
   } catch (error) {
     console.error('OAuth Callback Error:', error);
     res.status(500).send('Authentication failed');
