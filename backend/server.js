@@ -9,7 +9,7 @@ const folderRoutes = require('./routes/folder');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use('/api/auth', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 app.use('/api/email', require('./routes/email'));
 require('./workers/emailWorker'); 
 app.use('/api/ai', require('./routes/ai'));
