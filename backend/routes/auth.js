@@ -60,7 +60,7 @@ router.get('/google/callback', async (req, res) => {
     await user.save();
 
     // Redirect to Next.js frontend with user info
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    const frontendUrl = process.env.FRONTEND_URL || '[https://mailer-email-automation-assistant.vercel.app](https://mailer-email-automation-assistant.vercel.app)';
 res.redirect(`${frontendUrl}/dashboard?userId=${user._id}`);
   } catch (error) {
     console.error('OAuth Callback Error:', error);
