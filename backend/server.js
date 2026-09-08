@@ -10,10 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/auth', require('./routes/auth'));
-app.use('/api/email', require('./routes/email'));
+app.use('/email', require('./routes/email'));
 require('./workers/emailWorker'); 
-app.use('/api/ai', require('./routes/ai'));
-app.use('/api/folder', folderRoutes);// Starts the background listener
+app.use('/ai', require('./routes/ai'));
+app.use('/folder', folderRoutes);// Starts the background listener
 
 // Redis Queue Setup
 const redisClient = new Redis(process.env.REDIS_URL, {
